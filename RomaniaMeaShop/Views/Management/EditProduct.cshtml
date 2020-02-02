@@ -9,12 +9,12 @@
         <form asp-controller="Management" asp-action="EditProductAction" asp-route-id="Product.Id" method="post">
             <div asp-validation-summary="ModelOnly"></div>
             <div class="form-group">
-                <label asp-for="Product.Name"></label>
+                <label asp-for="Product.Name">Nume produs</label>
                 <input asp-for="Product.Name" class="form-control" />
                 <span asp-validation-for="Product.Name"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Product.CategoryId"></label>
+                <label asp-for="Product.CategoryId">Categorie</label>
                 <select class="custom-select" asp-for="Product.CategoryId">
                     <option value=""></option>
                     @foreach (var category in Model.Categories)
@@ -25,23 +25,23 @@
                 <span asp-validation-for="Product.CategoryId"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Product.Description"></label>
+                <label asp-for="Product.Description">Descriere</label>
                 <input asp-for="Product.Description" class="form-control" />
                 <span asp-validation-for="Product.Description"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Product.Price"></label>
+                <label asp-for="Product.Price">Preț</label>
                 <input asp-for="Product.Price" class="form-control" />
                 <span asp-validation-for="Product.Price"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Product.ImageUrl"></label>
+                <label asp-for="Product.ImageUrl">Cale imagine</label>
                 <input asp-for="Product.ImageUrl" class="form-control" />
                 <span asp-validation-for="Product.ImageUrl"></span>
             </div>
             <div class="form-check form-group">
                 <input type="checkbox" class="form-check-input" asp-for="Product.IsProductOfTheWeek">
-                <label class="form-check-label" asp-for="Product.IsProductOfTheWeek"></label>
+                <label class="form-check-label" asp-for="Product.IsProductOfTheWeek">Produsul săptămânii</label>
                 <span asp-validation-for="Product.IsProductOfTheWeek"></span>
             </div>
             <div class="form-group">

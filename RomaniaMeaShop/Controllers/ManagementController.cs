@@ -199,12 +199,12 @@ namespace RomaniaMeaShop.Controllers
         }
 
         [Authorize(Policy = "ManageOrders")]
-        public IActionResult SetOrderState(int id, string orderState)
+        public IActionResult SetOrderState(int id, string state)
         {
             var order = new Order
             {
                 Id = id,
-                OrderState = orderState
+                OrderState = state
             };
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:5001/api/Administration/SetOrderState/" + order);

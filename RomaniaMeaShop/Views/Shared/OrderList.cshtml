@@ -14,6 +14,7 @@
             <th>Adresa de facturare</th>
             <th>Sumar comandă</th>
             <th>Total</th>
+            <th>Stare comandă</th>
         </tr>
     </thead>
     <tbody>
@@ -62,6 +63,9 @@
                 </td>
                 <td>
                     @order.OrderTotal
+                </td>
+                <td>
+                @order.OrderState
                 </td>
             </tr>
 

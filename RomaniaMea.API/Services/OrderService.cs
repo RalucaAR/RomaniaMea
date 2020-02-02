@@ -40,7 +40,8 @@ namespace RomaniaMea.API.Services
                         Name = o.ProductName,
                         Price = o.Price,
                         Quantity = o.Quantity
-                    })
+                    }),
+                    OrderState = e.OrderState
                 })
                 .ToListAsync();
         }

@@ -22,10 +22,10 @@
 
         @foreach (var order in Model)
         {
-
             <tr>
 
                 <td class="text-justify">
+
                     <div>
                         @order.OrderPlaceDetails.Name,
                         @order.OrderPlaceDetails.AddressLine1
@@ -68,26 +68,27 @@
                 </td>
                 <td>
                     <form asp-controller="Management" asp-action="SetOrderState"
-                          asp-route-id="@order.Id"
-                          asp-route-orderState="@order.OrderState"
-                          method="put">
+                          asp-route-id="@order.Id" asp-route-state="@order.OrderState">
                         <div class="form-group">
-                            <label asp-for="@order.OrderState"></label>
-                            <select asp-for="@order.OrderState">
-                                <option class="custom-select" value="În așteptare">În așteptare</option>
-                                <option class="custom-select" value="În livrare">În livrare</option>
-                                <option class="custom-select" value="Livrată">Livrată</option>
+                            <select  class="form-control">
+                                <option value="În așteptare" asp-for="@order.OrderState">În așteptare</option>
+                                <option value="În livrare" asp-for="@order.OrderState">În livrare</option>
+                                <option value="Livrată" asp-for="@order.OrderState">Livrată</option>
                             </select>
                             <span asp-validation-for="@order.OrderState"></span>
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-primary buy-now-btn">Save</button>
+                            <button class="btn btn-primary buy-now-btn">
+                                Save
+                            </button>
                         </div>
                     </form>
-                </td>
-            </tr>
 
+
+                </td>
+
+            </tr>
         }
 
     </tbody>

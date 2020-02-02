@@ -77,7 +77,7 @@ namespace RomaniaMeaShop
                 options.AddPolicy("ManageOrders",
                      policy => policy.RequireRole("Admin"));
                 options.AddPolicy("ManageProducts",
-                    policy => policy.RequireRole("Admin", "Manager"));
+                    policy => policy.RequireRole("Admin"));
             });
 
         }
@@ -147,40 +147,8 @@ namespace RomaniaMeaShop
                 }
             }
 
-            Task<bool> managerExist = roleManager.RoleExistsAsync("Manager");
-            managerExist.Wait();
-            if (!managerExist.Result)
-            {
-                var role = new IdentityRole()
-                {
-                    Name = "Manager"
-                };
-                roleResult = roleManager.CreateAsync(role);
-                roleResult.Wait();
 
-
-                var managerUser = new IdentityUser()
-                {
-                    UserName = "Manager",
-                    Email = "manager@mail.com"
-                };
-                string managerPass = "Parola!1";
-                Task<IdentityResult> managerCreated = userManager.CreateAsync(managerUser, managerPass);
-                managerCreated.Wait();
-                if (managerCreated.Result.Succeeded)
-                {
-                    Task<IdentityResult> result = userManager.AddToRoleAsync(managerUser, "Manager");
-
-                    result.Wait();
-                    var security = userManager.UpdateSecurityStampAsync(managerUser);
-                    security.Wait();
-                }
-            }
-
-
-            }
-
-
+        }
     }
 }
 
