@@ -1,0 +1,54 @@
+﻿
+@{
+    @model IEnumerable<RomaniaMea.Models.Product>;
+    ViewData["Title"] = "Acasă";
+}
+
+<div>
+    <partial>
+        @await Html.PartialAsync("carousel")
+    </partial>
+</div>
+<br />
+<div class="weekly-getting">
+    <h3>Produsele tradiționale din zona Maramureșului vă vor încânta prin tradiția și unicitatea lor!</h3>
+</div>
+<br />
+
+<div class="row">
+    @if (Model != null)
+    {
+        @foreach (var product in Model)
+        {
+
+            @await Html.PartialAsync("ProductView", product);
+
+        }
+    }
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+  <p>  Țara noastră este bogată în tradiții, iar acest lucru poate fi ușor observat în absolut oricare regiune din România, cu precădere în zona Maramureșului, o zonă superbă din România </p>
+  <p>
+      Maramureș este un județ format din teritorii ale regiunilor istorice Maramureș, Ardeal și Crișana (respectiv Partium), situat în nord-vestul României. A fost înființat în anul 1968 prin reorganizarea teritorială a Regiunii Maramureș (din raioanele Șomcuta Mare, Baia Mare, Sighet, Lăpuș și Vișeu). Cea mai mare parte a teritoriului județului de azi a făcut parte mai devreme din Județul Maramureș (interbelic), respectiv din Comitatul Maramureș (antebelic). Din punct de vedere al culturii tradiționale, actualul județ este alcătuit din patru zone (etno-folcorice) distincte: Țara Chioarului, Țara Lăpușului, Țara Maramureșului (jumătatea de nord-est a Maramureșului Istoric) și Țara Codrului (partea de sud-vest), la care se adaugă Zona Metropolitană Baia Mare. Reședința și centrul cultural, educațional și economic a județului este municipiul Baia Mare. </p>
+  <p>    RomâniaMea a strâns în magazinul său online o serie de obiecte tradiționale variate, pregătite să satisfacă și cele mai rafinate gusturi.</p>
+ <p>   Atât în magazinul fizic din strada Mihai Eminescu a capitalei, cât și aici, în magazinul online, pot fi găsite obiecte tradiționale din zona Maramureșului, care fac parte din următoarele categorii: <p>
+    <ul>
+        <li>Obiecte din ceramică</li>
+        <li>Obiecte din lemn</li>
+        <li>Obiecte de cult</li>
+        <li>Port tradițional</li>
+        <li>Jucării</li>
+    </ul>
+   <p> Toate acestea pot fi admirate și achiziționate la alegere, atât pentru oferirea lor drept un cadou special pentru persoanele care adora tradițiile specifice zonei Maramureșului și spiritul românesc, cât și pentru înfrumusețarea caselor cu obiecte care respectă cu adevărat tradițiile zonei Maramureșului.</p>
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<RomaniaMea.Models.Product>
+@{
+    ViewData["Title"] = "Organizează Produse";
+}
+    <h2>Organizează Produse</h2>
+<br />
+<div>
+    <a asp-action="AddProduct" class="btn buy-now-btn">Adaugă un produs nou</a>
+</div>
+<br />
+<table class="table ">
+    <thead>
+        <tr>
+            <th>Nume produs</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr id="product-@product.Id">
+                <td>@product.Name</td>
+                <td>
+                    <a class="btn btn-link btn-no-effect" asp-controller="Management" asp-action="EditProduct" asp-route-id="@product.Id">Editează </a>
+                    |
+                    <a class="btn btn-link" asp-controller="Management" asp-action="DeleteProduct" asp-route-id="@product.Id">Șterge</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

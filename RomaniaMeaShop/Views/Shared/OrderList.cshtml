@@ -1,0 +1,77 @@
+﻿@model IEnumerable<RomaniaMea.API.ViewModels.MyOrderViewModel>
+
+@if (Model?.Count() <= 0)
+{
+    <div>
+        <p>Nu aveți nicio comandă momentan!</p>
+    </div>
+    return;
+}
+
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th>Adresa de facturare</th>
+            <th>Sumar comandă</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var order in Model)
+        {
+            <tr>
+
+                <td class="text-justify">
+                    <div>
+                        @order.OrderPlaceDetails.Name,
+                        @order.OrderPlaceDetails.AddressLine1
+                    </div>
+                    <div>
+                        @order.OrderPlaceDetails.City
+                    </div>
+                    <div>@order.OrderPlaceDetails.PhoneNumber</div>
+                    <div>@order.OrderPlaceDetails.Email</div>
+                    <br />
+                    <div>
+                        @order.OrderPlacedTime.Date.ToString("dd/MM/yyyy")
+                    </div>
+
+                </td>
+
+
+                <td>
+                    <table class="table">
+                        <tbody>
+                            @foreach (var item in order.ProductOrderInfos)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.Name
+                                    </td>
+                                    <td>
+                                        @item.Price lei * @item.Quantity
+
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+
+                    </table>
+                </td>
+                <td>
+                    @order.OrderTotal
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

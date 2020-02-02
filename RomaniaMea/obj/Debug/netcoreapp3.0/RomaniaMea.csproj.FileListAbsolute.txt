@@ -1,0 +1,10 @@
+F:\FACULTATE\AN IV\Ingineria programarii\RomaniaMea\RomaniaMea\bin\Debug\netcoreapp3.0\RomaniaMea.deps.json
+F:\FACULTATE\AN IV\Ingineria programarii\RomaniaMea\RomaniaMea\bin\Debug\netcoreapp3.0\RomaniaMea.runtimeconfig.json
+F:\FACULTATE\AN IV\Ingineria programarii\RomaniaMea\RomaniaMea\bin\Debug\netcoreapp3.0\RomaniaMea.runtimeconfig.dev.json
+F:\FACULTATE\AN IV\Ingineria programarii\RomaniaMea\RomaniaMea\bin\Debug\netcoreapp3.0\RomaniaMea.dll
+F:\FACULTATE\AN IV\Ingineria programarii\RomaniaMea\RomaniaMea\bin\Debug\netcoreapp3.0\RomaniaMea.pdb
+F:\FACULTATE\AN IV\Ingineria programarii\RomaniaMea\RomaniaMea\obj\Debug\netcoreapp3.0\RomaniaMea.AssemblyInfoInputs.cache
+F:\FACULTATE\AN IV\Ingineria programarii\RomaniaMea\RomaniaMea\obj\Debug\netcoreapp3.0\RomaniaMea.AssemblyInfo.cs
+F:\FACULTATE\AN IV\Ingineria programarii\RomaniaMea\RomaniaMea\obj\Debug\netcoreapp3.0\RomaniaMea.dll
+F:\FACULTATE\AN IV\Ingineria programarii\RomaniaMea\RomaniaMea\obj\Debug\netcoreapp3.0\RomaniaMea.pdb
+F:\FACULTATE\AN IV\Ingineria programarii\RomaniaMea\RomaniaMea\obj\Debug\netcoreapp3.0\RomaniaMea.csprojAssemblyReference.cache

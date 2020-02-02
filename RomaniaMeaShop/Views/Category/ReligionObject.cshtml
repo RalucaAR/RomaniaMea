@@ -1,0 +1,16 @@
+﻿@model IEnumerable<RomaniaMea.Models.Product>
+
+<h1>Obiecte de cult</h1>
+@if (Model.Count() > 0)
+{
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            @await Html.PartialAsync("ProductView", product);
+        }
+    </div>
+}
+else
+{
+<p>Ne pare rău dar nu am gpsit niciun obiect de cult! &#128546; </p>
+}
