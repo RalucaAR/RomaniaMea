@@ -37,7 +37,7 @@
                     <div>@order.OrderPlaceDetails.Email</div>
                     <br />
                     <div>
-                        @order.OrderPlacedTime.Date.ToString("dd MMM yyyy")
+                        @order.OrderPlacedTime.Date.ToString("dd MMM yyyy hh:mm:ss")
                     </div>
 
                 </td>
@@ -69,17 +69,14 @@
                 <td>
                     <form asp-controller="Management" asp-action="SetOrderState"
                           asp-route-id="@order.Id" asp-route-state="@order.OrderState">
+                        <div asp-validation-summary="ModelOnly"></div>
                         <div class="form-group">
-                            <select  class="form-control">
-                                <option value="În așteptare" asp-for="@order.OrderState">În așteptare</option>
-                                <option value="În livrare" asp-for="@order.OrderState">În livrare</option>
-                                <option value="Livrată" asp-for="@order.OrderState">Livrată</option>
-                            </select>
-                            <span asp-validation-for="@order.OrderState"></span>
+                           
+                            <select class="form-control" asp-for="@order.OrderState" asp-items="@order.OrderStates"></select>
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-primary buy-now-btn">
+                            <button type="submit" class="btn btn-primary buy-now-btn">
                                 Save
                             </button>
                         </div>

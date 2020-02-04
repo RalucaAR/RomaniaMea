@@ -38,7 +38,7 @@ namespace RomaniaMeaShop.Controllers
                 City = orderViewModel.City,
                 PhoneNumber = orderViewModel.PhoneNumber,
                 UserId = user.Id, 
-                OrderState = "În așteptare"
+                OrderState = ""
             };
 
             //read cookie from IHttpContextAccessor  

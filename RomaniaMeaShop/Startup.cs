@@ -54,6 +54,7 @@ namespace RomaniaMeaShop
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.AllowedForNewUsers = true;
+                
 
                 // User settings.
                 options.User.AllowedUserNameCharacters =
@@ -65,11 +66,11 @@ namespace RomaniaMeaShop
             {
                 // Cookie settings
                 options.Cookie.HttpOnly = true;
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
 
                 options.LoginPath = "/Account/Login";
                 //options.AccessDeniedPath = "/Identity/Account/AccessDenied";
-                // options.SlidingExpiration = true;
+                options.SlidingExpiration = true;
             });
             services.AddAuthentication(IISDefaults.AuthenticationScheme);
             services.AddAuthorization(options =>

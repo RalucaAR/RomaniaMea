@@ -175,7 +175,7 @@ namespace RomaniaMeaShop.Controllers
             }
         }
 
-        [Authorize(Policy = "ManageOrders")]
+        //[Authorize(Policy = "ManageOrders")]
         public IActionResult AllOrders()
         {
             HttpClient client = new HttpClient();

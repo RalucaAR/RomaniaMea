@@ -29,7 +29,7 @@ namespace RomaniaMea.API.Controllers
         public async Task<IEnumerable<MyOrderViewModel>> AllOrders()
         {
             var orders =  await _repositoryWrapper.Order.GetAllAsync();
-            List<MyOrderViewModel> allOrders = new List<MyOrderViewModel>();
+            var allOrders = new List<MyOrderViewModel>();
                 foreach (var order in orders)
                 {
                 var user = await _userManager.FindByIdAsync(order.UserId);
