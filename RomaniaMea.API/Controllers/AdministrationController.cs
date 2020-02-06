@@ -138,11 +138,49 @@ namespace RomaniaMea.API.Controllers
         public async Task<IActionResult> SetOrderState(Order order)
         {
             var orderById = _repositoryWrapper.Order.AsNoTracking().FirstOrDefault(x => x.Id == order.Id);
-            orderById.OrderState = order.OrderState;
-            _repositoryWrapper.Order.Update(orderById);
-            await _repositoryWrapper.SaveAsync();
+            if (orderById != null)
+            {
+                orderById.OrderState = order.OrderState;
+                _repositoryWrapper.Order.Update(orderById);
+                await _repositoryWrapper.SaveAsync();
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
 
-            return Ok();
+        [Route("[action]/{id}")]
+        [HttpGet]
+        public async Task<MyOrderViewModel> EditOrderState(int id)
+        {
+            var order = await _repositoryWrapper.Order.GetByIdAsync(id);
+            var user = _userManager.FindByIdAsync(order.UserId).Result;
+
+            return new MyOrderViewModel
+            {
+                Id = order.Id,
+                OrderPlacedTime = order.OrderPlacedTime,
+                OrderTotal = order.OrderTotal,
+                OrderPlaceDetails = new OrderViewModel
+                {
+                    AddressLine1 = order.AddressLine1,
+                    City = order.City,
+                    Email = user.Email,
+                    Name = user.UserName,
+                    PhoneNumber = order.PhoneNumber
+                },
+                ProductOrderInfos = _repositoryWrapper.OrderDetail.GetByCondition(x => x.OrderId == order.Id)
+                        .Result.Select(x => new MyProductOrderInfo
+                        {
+                            Name = x.ProductName,
+                            Quantity = x.Quantity,
+                            Price = x.Price
+                        }),
+                OrderState = order.OrderState
+
+            };
         }
     }
 }

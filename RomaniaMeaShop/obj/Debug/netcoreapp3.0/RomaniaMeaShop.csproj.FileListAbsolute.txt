@@ -112,3 +112,4 @@ F:\FACULTATE\AN IV\Ingineria programarii\RomaniaMea\RomaniaMeaShop\obj\Debug\net
 F:\FACULTATE\AN IV\Ingineria programarii\RomaniaMea\RomaniaMeaShop\obj\Debug\netcoreapp3.0\RomaniaMeaShop.csproj.CopyComplete
 F:\FACULTATE\AN IV\Ingineria programarii\RomaniaMea\RomaniaMeaShop\obj\Debug\netcoreapp3.0\RomaniaMeaShop.dll
 F:\FACULTATE\AN IV\Ingineria programarii\RomaniaMea\RomaniaMeaShop\obj\Debug\netcoreapp3.0\RomaniaMeaShop.pdb
+F:\FACULTATE\AN IV\Ingineria programarii\RomaniaMea\RomaniaMeaShop\obj\Debug\netcoreapp3.0\Razor\Views\Management\EditOrderState.cshtml.g.cs

@@ -10,6 +10,7 @@ namespace RomaniaMea.API.ViewModels
     {
         [StringLength(255)]
         [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
         [Required(ErrorMessage = "Email is required")]
         public string Email { get; set; }
 

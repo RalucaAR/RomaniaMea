@@ -1,0 +1,61 @@
+﻿@model RomaniaMea.API.ViewModels.MyOrderViewModel
+@{
+    ViewData["Title"] = "Editează Stare Comanda";
+}
+<h2>Editează Stare Comandă</h2>
+<br />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-controller="Management" asp-action="SetOrderState"  method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <label asp-for="OrderPlaceDetails.Name">Nume produs</label>
+                <input asp-for="OrderPlaceDetails.Name" class="form-control" />
+                <span asp-validation-for="OrderPlaceDetails.Name"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderPlaceDetails.AddressLine1">Adresă</label>
+                <input asp-for="OrderPlaceDetails.AddressLine1" class="form-control" />
+                <span asp-validation-for="OrderPlaceDetails.AddressLine1"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderPlaceDetails.City">Oraș</label>
+                <input asp-for="OrderPlaceDetails.City" class="form-control" />
+                <span asp-validation-for="OrderPlaceDetails.City"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderPlaceDetails.PhoneNumber">Număr telefon contact</label>
+                <input asp-for="OrderPlaceDetails.PhoneNumber" class="form-control" />
+                <span asp-validation-for="OrderPlaceDetails.PhoneNumber"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderPlaceDetails.Email">Email contact</label>
+                <input asp-for="OrderPlaceDetails.Email" class="form-control" />
+                <span asp-validation-for="OrderPlaceDetails.Email"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderPlacedTime">Data plasare comandă</label>
+                <input asp-for="OrderPlacedTime" class="form-control" />
+                <span asp-validation-for="OrderPlacedTime"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderTotal">Total comandă</label>
+                <input asp-for="OrderTotal" class="form-control" />
+                <span asp-validation-for="OrderTotal"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderState">Stare comandă</label>
+                <input asp-for="OrderState" class="form-control" />
+                <span asp-validation-for="OrderState"></span>
+            </div>
+            <div class="form-group">
+                <select class="form-control" asp-for="OrderState" asp-items="Model.OrderStates"></select>
+            </div>
+
+            <button type="submit" class="btn buy-now-btn">Salvează</button>
+
+        </form>
+    </div>
+</div>
+<br />
+<br />
