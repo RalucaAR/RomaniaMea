@@ -175,7 +175,7 @@ namespace RomaniaMeaShop.Controllers
             }
         }
 
-        //[Authorize(Policy = "ManageOrders")]
+        [Authorize(Policy = "ManageOrders")]
         public IActionResult AllOrders()
         {
             HttpClient client = new HttpClient();
@@ -190,6 +190,13 @@ namespace RomaniaMeaShop.Controllers
             {
                 var order = response.Content.ReadAsStringAsync().Result;
                 var orderObj = JsonConvert.DeserializeObject<IEnumerable<MyOrderViewModel>>(order);
+
+                var newOrder = new MyOrderViewModel();
+                foreach(var orderr  in orderObj)
+                {
+                    orderr.OrderStates = newOrder.OrderStates;
+                }
+                
                 return View(orderObj);
             }
             else
@@ -198,13 +205,19 @@ namespace RomaniaMeaShop.Controllers
             }
         }
 
+        public class OrderTemp
+        {
+            public string orderState;
+        }
+
         [Authorize(Policy = "ManageOrders")]
-        public IActionResult SetOrderState(int id, string state)
+        [HttpPost]
+        public IActionResult SetOrderState(int id, string orderState)
         {
             var order = new Order
             {
                 Id = id,
-                OrderState = state
+                OrderState = orderState
             };
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:5001/api/Administration/SetOrderState/" + order);
@@ -226,5 +239,6 @@ namespace RomaniaMeaShop.Controllers
                 return RedirectToAction("AllOrders", "Management");
             }
         }
+
     }
 }

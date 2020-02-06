@@ -21,6 +21,7 @@
     <tbody>
 
         @foreach (var order in Model)
+
         {
             <tr>
 
@@ -37,7 +38,7 @@
                     <div>@order.OrderPlaceDetails.Email</div>
                     <br />
                     <div>
-                        @order.OrderPlacedTime.Date.ToString("dd MMM yyyy hh:mm:ss")
+                        @order.OrderPlacedTime.Date.ToString("dd MMM yyyy")
                     </div>
 
                 </td>
@@ -68,13 +69,14 @@
                 </td>
                 <td>
                     <form asp-controller="Management" asp-action="SetOrderState"
-                          asp-route-id="@order.Id" asp-route-state="@order.OrderState">
+                          asp-route-id="@order.Id"
+                          method="post">
                         <div asp-validation-summary="ModelOnly"></div>
                         <div class="form-group">
-                           
-                            <select class="form-control" asp-for="@order.OrderState" asp-items="@order.OrderStates"></select>
+                            <select class="custom-select" id="orderState" name="orderState" asp-items="@order.OrderStates">
+                                <option value="@order.OrderState">@order.OrderState</option>
+                            </select><span asp-validation-for="@order.OrderState"></span>
                         </div>
-
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary buy-now-btn">
                                 Save

@@ -138,11 +138,18 @@ namespace RomaniaMea.API.Controllers
         public async Task<IActionResult> SetOrderState(Order order)
         {
             var orderById = _repositoryWrapper.Order.AsNoTracking().FirstOrDefault(x => x.Id == order.Id);
-            orderById.OrderState = order.OrderState;
-            _repositoryWrapper.Order.Update(orderById);
-            await _repositoryWrapper.SaveAsync();
-
-            return Ok();
+            if (orderById != null)
+            {
+                orderById.OrderState = order.OrderState;
+                _repositoryWrapper.Order.Update(orderById);
+                await _repositoryWrapper.SaveAsync();
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
         }
+
     }
 }

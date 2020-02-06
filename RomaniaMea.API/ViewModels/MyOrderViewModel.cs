@@ -17,11 +17,11 @@ namespace RomaniaMea.API.ViewModels
         public IEnumerable<MyProductOrderInfo> ProductOrderInfos { get; set; }
         public string OrderState { get; set; }
 
-        public List<SelectListItem> OrderStates { get; } = new List<SelectListItem>
+        public List<SelectListItem> OrderStates { get; set; } = new List<SelectListItem>
          {
-             new SelectListItem { Value = "Waiting", Text = "În așteptare"},
-             new SelectListItem { Value = "Delivering", Text = "În livrare"},
-             new SelectListItem { Value = "Delivered", Text = "Livrată"}
+             new SelectListItem { Value = "În așteptare", Text = "În așteptare"},
+             new SelectListItem { Value = "În livrare", Text = "În livrare"},
+             new SelectListItem { Value = "Livrată", Text = "Livrată"}
          };
 
     }
